@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="images/2.jpg">
+  <title>Shop One</title>
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* Add your CSS styles here */
+  .h1{
+    text-align: center;
+    color:rgb(65, 180, 215); 
+    font-size:60px; 
+    font-family:Showcard Gothic;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+    <nav class="nav navbar navbar-expand-md navbar-light">
+        <div class="navbar-brand">
+            <h1 class="a"><span>Shop One</span></h1>
+            <h1 class="b">Stay Home and shop Online!</h1>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav" style="margin-left: 20%;">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>   
+          </ul>
+        </div>  
+    </nav>
+    
+    <b><h1 style="text-align: center;">CONTACT US NOW!</h1></b>
+    <div style="padding-left: 5%; padding-right: 5%;">
+        <form action="index.html">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    
+    <div id="map" style="width:100%;height:400px; margin-top: 5%;"></div>
+        <script>
+          function initMap() {
+            var aptech = {lat: 24.9520128, lng: 67.0048256};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 16,
+              center: aptech
+            });
+            var marker = new google.maps.Marker({
+              position: aptech,
+              map: map
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOfoQEnSeEMhNmp8NI6ZZGulHloVCIZUA
+    &callback=initMap">
+        </script>
+<div style="margin-top: 5%;">
+  <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a></li>
+      </ul>
+      
+      <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+    </footer>
+  </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

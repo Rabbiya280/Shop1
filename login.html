@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="main">
+  <div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h1>LOGIN</h1>
+          <p>Please enter your credentials to login.</p>
+        </div>
+      </div>
+      <form class="login-form" onsubmit="handleLogin(event)">
+        <input type="email" id="email" placeholder="Email" />
+        <input type="password" id="password" placeholder="Password" />
+        <button type="submit">Login</button>
+        <p class="message" style="color: black;">Not registered? 
+          <a href="signup.html" style="color: rgb(0, 102, 255);">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add JavaScript for login handling -->
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      // Get the stored email and password from local storage
+      var storedEmail = localStorage.getItem("email");
+      var storedPassword = localStorage.getItem("password");
+
+      // Check if the entered email and password match the signed-up user's data
+      if (email === storedEmail && password === storedPassword) {
+        // Store the login status in local storage
+        localStorage.setItem("isLoggedIn", "true");
+        // Redirect to the homepage after successful login
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid email or password.");
+      }
+    }
+  </script>
+
+</body>
+</html>
