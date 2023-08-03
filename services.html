@@ -9,32 +9,23 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
-    <nav class="nav navbar navbar-expand-md navbar-light">
-        <div class="navbar-brand">
-            <h1 class="a"><span>Shop One</span></h1>
-            <h1 class="b">Stay Home and shop Online!</h1>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav" style="margin-left: 20%;">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
-            </li>   
-          </ul>
-        </div>  
-    </nav>
+  <div class="topnav" id="myTopnav">
+    <span class="navbar-brand">
+      <h1 class="a"><span>Shop One</span></h1>
+    </span>
+  <span>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+  </span>
+  </div>
     <div class="container">
     <h1>Items Page</h1>
         <div class="items">
@@ -181,21 +172,39 @@
           <ion-icon name="logo-instagram"></ion-icon>
         </a></li>
     </ul>
-    <p>&copy; 2021 Nadine Coelho | All Rights Reserved</p>
+    <p>&copy; ! 2021 ShopOne | All Rights Reserved</p>
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script>
-// Cart array to store added items
+  // Cart array to store added items
 var cartItems = [];
 
 // Function to add an item to the cart
 function addToCart(itemName, itemPrice) {
-  var item = {
-    name: itemName,
-    price: itemPrice
-  };
-  cartItems.push(item);
+  var itemIndex = -1;
+
+  // Check if the item is already in the cart
+  for (var i = 0; i < cartItems.length; i++) {
+    if (cartItems[i].name === itemName) {
+      itemIndex = i;
+      break;
+    }
+  }
+
+  // If the item is already in the cart, update its quantity
+  if (itemIndex !== -1) {
+    cartItems[itemIndex].quantity += 1;
+  } else {
+    // If the item is not in the cart, add it as a new item
+    var item = {
+      name: itemName,
+      price: itemPrice,
+      quantity: 1
+    };
+    cartItems.push(item);
+  }
+
   updateCart();
 }
 
@@ -210,9 +219,9 @@ function updateCart() {
   // Populate the cart list
   cartItems.forEach(function(item) {
     var li = document.createElement("li");
-    li.textContent = item.name + " - Rs" + item.price;
+    li.textContent = item.name + " - Rs" + item.price + " x " + item.quantity;
     cartList.appendChild(li);
-    total += item.price;
+    total += item.price * item.quantity;
   });
 
   // Update total price
@@ -228,6 +237,15 @@ function checkout() {
   updateCart();
 }
 
+
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
 </script>
 </body>
 </html>

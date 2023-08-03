@@ -4,38 +4,29 @@
 <meta charset="utf-8">
 <link rel="shortcut icon" href="images/2.jpg">
 <title>Shop One</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Include Bootstrap CSS -->
 <link rel="stylesheet" href="index.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body class="main">
-  <nav class="nav navbar navbar-expand-md navbar-light">
-    <div class="navbar-brand">
-        <h1 class="a"><span>Shop One</span></h1>
-        <h1 class="b">Stay Home and shop Online!</h1>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav" style="margin-left: 20%;">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="services.html">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact Us</a>
-        </li>   
-      </ul>
-    </div>  
-</nav>
+<body>
+  <div class="topnav" id="myTopnav">
+    <span class="navbar-brand">
+      <h1 class="a"><span>Shop One</span></h1>
+    </span>
+  <span>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+  </span>
+  </div>
 
 <!-- The carousel -->
 <div id="demo" class="carousel slide" data-ride="carousel">
@@ -183,7 +174,7 @@
           </a></li>
       </ul>
       
-      <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+      <p>&copy; ! 2021 ShopOne | All Rights Reserved</p>
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -201,6 +192,16 @@
       window.location.href = "login.html";
     }
   };
+</script>
+<script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
 </script>
 </body>
 </html>
