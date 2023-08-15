@@ -11,6 +11,9 @@
           <h1 style="text-align:center;">Sign Up</h1>
           <p style="text-align:center;">Please fill in this form to create an account.</p>
           <hr>
+          <label for="username"><b>Username</b></label><br/>
+          <input type="username" placeholder="Enter Username" name="username" required><br/>
+
           <label for="email"><b>Email</b></label><br/>
           <input type="email" placeholder="Enter Email" name="email" required><br/>
     
@@ -41,6 +44,7 @@
       var email = signupForm.elements["email"].value;
       var password = signupForm.elements["password"].value;
       var passwordRepeat = signupForm.elements["password-repeat"].value;
+      var username = signupForm.elements["username"].value; // Add this line
 
       // Perform validation to check if passwords match
       if (password !== passwordRepeat) {
@@ -49,8 +53,10 @@
       }
 
       // Store the email and password in local storage
+      localStorage.setItem("username", username);
       localStorage.setItem("email", email);
       localStorage.setItem("password", password);
+
 
       // Redirect to the login page after successful signup
       window.location.href = "login.html";
