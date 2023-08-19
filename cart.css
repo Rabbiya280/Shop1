@@ -1,10 +1,6 @@
 /* Reset some default styling */
-body, h1, h2, p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Set up basic styling */
+
+    /* Set up basic styling */
   body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -13,8 +9,8 @@ body, h1, h2, p {
   
   .container {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 0 ;
+    margin-bottom: 25%;
   }
   .cart-table {
     margin-top: 20px;

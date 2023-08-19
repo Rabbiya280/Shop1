@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/2.jpg">
   <title>Shop One</title>
   <link rel="stylesheet" href="services.css">
@@ -26,6 +27,10 @@
     <a href="services.html">Services</a>
     <a href="cart.html">My Cart</a>
     <a href="contact.html">Contact Us</a>
+    <a href="login.html" id="logoutButton" class="nav-link" style="margin-left: auto;">Logout</a>
+    <span id="userGreeting" style="display: none; font-weight: bold; margin-left: 30px; font-size: xx-large;">
+      Welcome, <span id="userName"></span>!
+    </span>
   </span>
   </div>
     <div class="container">
@@ -165,31 +170,33 @@
           </div>
         </div>
       </div>
-<footer class="footer">
-    <div class="waves">
-      <div class="wave" id="wave1"></div>
-      <div class="wave" id="wave2"></div>
-      <div class="wave" id="wave3"></div>
-      <div class="wave" id="wave4"></div>
-    </div>
-    <ul class="social-icon">
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a></li>
-    </ul>
-    <p>&copy; ! 2021 ShopOne | All Rights Reserved</p>
-  </footer>
+      <footer class="footer">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        
+        <p>&copy; ! 2021 ShopOne | All Rights Reserved</p>
+      </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="main.js"></script>
 <script>
    function addToCart(itemName, itemPrice) {
             var existingItems = JSON.parse(localStorage.getItem('cartItems')) || [];
