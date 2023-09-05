@@ -27,6 +27,7 @@
     <a href="services.html">Services</a>
     <a href="cart.html">My Cart</a>
     <a href="contact.html">Contact Us</a>
+    <a href="OrderHistory.html">Order History</a>
     <a href="login.html" id="logoutButton" class="nav-link" style="margin-left: auto;">Logout</a>
     <span id="userGreeting" style="display: none; font-weight: bold; margin-left: 30px; font-size: xx-large;">
       Welcome, <span id="userName"></span>!
@@ -35,6 +36,11 @@
   </div>
     <div class="container">
     <h1>Items Page</h1>
+     <!-- Search bar -->
+     <div class="search-bar">
+       <input type="text" id="searchInput" placeholder="Search items...">
+  <button id="searchButton" onclick="searchItems()">Search</button>
+</div>
         <div class="items">
             <div class="item">
                 <img src="images/f1.jpg" alt="Product 1">
@@ -216,6 +222,27 @@
       } else {
           x.className = "topnav";
       }
+  }
+  function searchItems() {
+    var searchKeyword = document.getElementById("searchInput").value.toLowerCase();
+    var items = document.querySelectorAll(".item");
+
+    items.forEach(function (item) {
+      var itemName = item.querySelector("p:first-of-type").textContent.toLowerCase();
+      if (itemName.includes(searchKeyword)) {
+        item.style.display = "block"; // Show matching items
+      } else {
+        item.style.display = "none"; // Hide non-matching items
+      }
+    });
+  }
+
+  // Function to clear the search results and show all items
+  function clearSearch() {
+    var items = document.querySelectorAll(".item");
+    items.forEach(function (item) {
+      item.style.display = "block"; // Show all items
+    });
   }
 </script>
 </body>

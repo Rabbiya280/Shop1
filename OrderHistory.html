@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/2.jpg">
+    <title>Shop One</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="history.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <span class="navbar-brand">
+            <h1 class="a"><span>Shop One</span></h1>
+        </span>
+        <span>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="cart.html">My Cart</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="OrderHistory.html">Order History</a>
+            <a href="login.html" id="logoutButton" class="nav-link" style="margin-left: auto;">Logout</a>
+            <span id="userGreeting" style="display: none; font-weight: bold; margin-left: 30px; font-size: xx-large;">
+                Welcome, <span id="userName"></span>!
+            </span>
+        </span>
+    </div>
+    <div class="container">
+        <h1 class="text-center">Order History</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order Date</th>
+                    <th>Order Items</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody id="orderHistoryContainer">
+                <!-- Order history data will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <footer class="footer">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <p>&copy; ! 2021 ShopOne | All Rights Reserved</p>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="main.js"></script>
+</body>
+<script>
+    // In a separate HTML page or section where you want to display order history
+    function displayOrderHistory() {
+        var orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+
+        // Get a reference to the container where you want to display order history
+        var orderHistoryContainer = document.getElementById('orderHistoryContainer');
+
+        // Clear any existing content in the container
+        orderHistoryContainer.innerHTML = '';
+
+        // Loop through order history and display each order
+        orderHistory.forEach(function (order, index) {
+            var orderDate = new Date(order.orderDate); // Use the orderDate property
+
+            var orderRow = document.createElement('tr');
+
+            // Create a table cell for order date
+            var orderDateCell = document.createElement('td');
+            orderDateCell.textContent = orderDate.toLocaleDateString(); // Display in a readable date format
+            orderRow.appendChild(orderDateCell);
+
+            // Create a table cell for order items
+            var orderItemsCell = document.createElement('td');
+            var orderItemsList = document.createElement('ul');
+            order.items.forEach(function (item) {
+                var listItem = document.createElement('li');
+                listItem.textContent = `${item.name} x${item.quantity} - Rs ${item.price * item.quantity}`;
+                orderItemsList.appendChild(listItem);
+            });
+            orderItemsCell.appendChild(orderItemsList);
+            orderRow.appendChild(orderItemsCell);
+
+            // Create a table cell for total amount
+            var orderTotalCell = document.createElement('td');
+            orderTotalCell.textContent = `Rs ${order.total}`;
+            orderRow.appendChild(orderTotalCell);
+
+            // Append the orderRow to the orderHistoryContainer
+            orderHistoryContainer.appendChild(orderRow);
+        });
+    }
+
+    // Call the function to display order history when needed
+    displayOrderHistory();
+</script>
+</html>

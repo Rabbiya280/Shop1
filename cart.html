@@ -27,6 +27,7 @@
     <a href="services.html">Services</a>
     <a href="cart.html">My Cart</a>
     <a href="contact.html">Contact Us</a>
+    <a href="OrderHistory.html">Order History</a>
     <a href="login.html" id="logoutButton" class="nav-link" style="margin-left: auto;">Logout</a>
     <span id="userGreeting" style="display: none; font-weight: bold; margin-left: 30px; font-size: xx-large;">
       Welcome, <span id="userName"></span>!
@@ -34,7 +35,7 @@
   </span>
   </div>
   <div class="container">
-    <h1>Shopping Cart</h1>
+    <h1 style="text-align: center;">Shopping Cart</h1>
     <div class="cart-table">
       <table>
         <thead>
@@ -158,15 +159,57 @@
     updateCart();
 });
 
-  function checkout() {
-    $('#orderConfirmationModal').modal('show');
-    localStorage.removeItem('cartItems');
-    updateCart();
-  }
+// Assuming you have a function to handle the checkout process
+function checkout() {
+  // Create an order object with orderDate, items, and total
+  var order = {
+    orderDate: Date.now(), // Current timestamp
+    items: JSON.parse(localStorage.getItem('cartItems')) || [], // Get items from the cart
+    total: calculateTotal() // Calculate the total amount
+  };
 
-  window.addEventListener('DOMContentLoaded', function () {
-    updateCart();
+  // Get the existing order history or initialize an empty array
+  var orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+
+  // Push the order to the orderHistory array
+  orderHistory.push(order);
+
+  // Save the updated order history to localStorage
+  localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+
+  // Clear the cart or perform any other necessary actions
+  clearCart();
+
+  // Update the cart display
+  updateCart();
+
+  // Optionally, you can show a confirmation message to the user
+  showOrderConfirmation();
+}
+
+// Function to calculate the total amount
+function calculateTotal() {
+  var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  var total = 0;
+  cartItems.forEach(function (item) {
+    total += item.price * item.quantity;
   });
+  return total;
+}
+
+// Function to clear the cart
+function clearCart() {
+  localStorage.removeItem('cartItems');
+}
+
+// Function to show an order confirmation message (you can customize this)
+function showOrderConfirmation() {
+  // You can implement a modal or a custom message to confirm the order
+  // For example:
+  $('#orderConfirmationModal').modal('show');
+}
+
+
 </script>
 
 <script src="main.js"></script>
