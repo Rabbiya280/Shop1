@@ -34,6 +34,28 @@
     </span>
   </span>
   </div>
+  <div class="categories">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#category1">All Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#category2">Fragrances</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#category3">Beauty</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#category4">Health and fitness</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#category5">Toys</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#category6">Electronics</a>
+      </li>
+    </ul>
+  </div>
     <div class="container">
     <h1>Items Page</h1>
      <!-- Search bar -->
@@ -41,7 +63,9 @@
        <input type="text" id="searchInput" placeholder="Search items...">
   <button id="searchButton" onclick="searchItems()">Search</button>
 </div>
-        <div class="items">
+      <div class="tab-content">
+        <div id="category1" class="tab-pane fade show active">
+          <div class="items">
             <div class="item">
                 <img src="images/f1.jpg" alt="Product 1">
                 <p>Product 1</p>
@@ -156,6 +180,119 @@
         </div>
         </div>
       </div>
+        <div id="category2" class="tab-pane fade">
+          <div class="items">
+            <div class="item">
+              <img src="images/f1.jpg" alt="Product 1">
+              <p>Product 1</p>
+              <p>Rs : 2500</p>
+              <button onclick="addToCart('Product 1', 2500)">Add to Cart</button>
+          </div>
+          <div class="item">
+              <img src="images/f2.jpg" alt="Product">
+              <p>Product 2</p>
+              <p>Rs : 2000</p>
+              <button onclick="addToCart('Product 2', 2000)">Add to Cart</button>
+          </div>
+          <div class="item">
+              <img src="images/f3.jpg" alt="Product">
+              <p>Product 3</p>
+              <p>Rs : 1800</p>
+              <button onclick="addToCart('Product 3', 1800)">Add to Cart</button>
+          </div>
+          </div>
+        </div>
+        <div id="category3" class="tab-pane fade">
+          <div class="items">
+          <div class="item">
+            <img src="images/m1.jpg" alt="Product">
+            <p>Product 4</p>
+            <p>Rs : 2500</p>
+            <button onclick="addToCart('Product 4', 2500)">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/m2.jpg" alt="Product">
+            <p>Product 5</p>
+            <p>Rs : 4000</p>
+            <button onclick="addToCart('Product 5', 4000)">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/m3.jpg" alt="Product">
+            <p>Product 6</p>
+            <p>Rs : 3500</p>
+            <button onclick="addToCart('Product 6', 3500)">Add to Cart</button>
+        </div>
+      </div>
+        </div>
+      <div id="category4" class="tab-pane fade">
+        <div class="items">
+        <div class="item">
+          <img src="images/g1.jpg" alt="Product">
+          <p>Product 7</p>
+          <p>Rs : 5500</p>
+          <button onclick="addToCart('Product 7', 5500)">Add to Cart</button>
+      </div>
+      <div class="item">
+          <img src="images/g2.jpg" alt="Product">
+          <p>Product 8</p>
+          <p>Rs : 8000</p>
+          <button onclick="addToCart('Product 8', 8000)">Add to Cart</button>
+      </div>
+      <div class="item">
+          <img src="images/g3.jpg" alt="Product">
+          <p>Product 9</p>
+          <p>Rs : 15000</p>
+          <button onclick="addToCart('Product 9', 15000)">Add to Cart</button>
+      </div>
+      </div>
+    </div>
+      <div id="category5" class="tab-pane fade">
+        <div class="items">
+        <div class="item">
+          <img src="images/t1.jpg" alt="Product">
+          <p>Product 10</p>
+          <p>Rs : 550</p>
+          <button onclick="addToCart('Product 10', 550)">Add to Cart</button>
+      </div>
+      <div class="item">
+          <img src="images/t2.jpg" alt="Product">
+          <p>Product 11</p>
+          <p>Rs : 800</p>
+          <button onclick="addToCart('Product 11', 800)">Add to Cart</button>
+      </div>
+      <div class="item">
+          <img src="images/t3.jpg" alt="Product">
+          <p>Product 12</p>
+          <p>Rs : 1500</p>
+          <button onclick="addToCart('Product 12', 1500)">Add to Cart</button>
+      </div>
+      </div>
+    </div>
+      <div id="category6" class="tab-pane fade">
+        <div class="items">
+        <div class="item">
+          <img src="images/e1.jpg" alt="Product">
+          <p>Product 16</p>
+          <p>Rs : 75000</p>
+          <button onclick="addToCart('Product 16', 750000)">Add to Cart</button>
+      </div>
+      <div class="item">
+          <img src="images/e2.jpg" alt="Product">
+          <p>Product 17</p>
+          <p>Rs : 9000</p>
+          <button onclick="addToCart('Product 17', 90000)">Add to Cart</button>
+      </div>
+      <div class="item">
+          <img src="images/e3.jpg" alt="Product">
+          <p>Product 18</p>
+          <p>Rs : 85000</p>
+          <button onclick="addToCart('Product 15', 85000)">Add to Cart</button>
+      </div>
+      </div>
+    </div>
+      </div>
+      </div>
+    </div>
       <div class="modal fade" id="itemAddedModal" tabindex="-1" role="dialog" aria-labelledby="itemAddedModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
