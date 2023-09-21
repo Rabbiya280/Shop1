@@ -2,6 +2,7 @@ body {
   font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+	background-color: coral;
 } 
 
   /* Styling for the carousel */
@@ -12,12 +13,11 @@ body {
   
   /* Custom styles for the images */
   #myImg {
-  border-radius: 5px;
+  border-radius: 10px;
   padding-left: 1%;
   margin-top: 20px;
-  max-height: 300px;
-  height: 250px;
-  max-width: 370px;
+  height: 300px;
+  width: 460px;
   }
 
   [class*="col-md-6 about-left"] img {
